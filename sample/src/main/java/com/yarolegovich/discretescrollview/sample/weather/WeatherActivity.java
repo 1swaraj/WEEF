@@ -48,9 +48,6 @@ public class WeatherActivity extends AppCompatActivity implements
 
         forecastView.setForecast(forecasts.get(0));
 
-        findViewById(R.id.home).setOnClickListener(this);
-        findViewById(R.id.btn_transition_time).setOnClickListener(this);
-        findViewById(R.id.btn_smooth_scroll).setOnClickListener(this);
     }
 
     @Override

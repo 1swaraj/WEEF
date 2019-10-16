@@ -9,6 +9,9 @@ import android.graphics.Shader;
 import android.os.Build;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.RequiresApi;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -29,8 +32,8 @@ public class ForecastView extends LinearLayout {
     private int[] currentGradient;
 
     private TextView weatherDescription;
-    private TextView weatherTemperature;
-    private ImageView weatherImage;
+
+
 
     private ArgbEvaluator evaluator;
 
@@ -62,8 +65,9 @@ public class ForecastView extends LinearLayout {
         inflate(getContext(), R.layout.view_forecast, this);
 
         weatherDescription = (TextView) findViewById(R.id.weather_description);
-        weatherImage = (ImageView) findViewById(R.id.weather_image);
-        weatherTemperature = (TextView) findViewById(R.id.weather_temperature);
+        Linkify.addLinks(weatherDescription, Linkify.WEB_URLS);
+
+
     }
 
     private void initGradient() {
@@ -95,12 +99,11 @@ public class ForecastView extends LinearLayout {
         if (getWidth() != 0 && getHeight() != 0) {
             initGradient();
         }
-        weatherDescription.setText(weather.getDisplayName());
-        weatherTemperature.setText(forecast.getTemperature());
-        Glide.with(getContext()).load(weatherToIcon(weather)).into(weatherImage);
+        weatherDescription.setText(Html.fromHtml(weather.getDisplayName()));
+
         invalidate();
 
-        weatherImage.animate()
+        weatherDescription.animate()
                 .scaleX(1f).scaleY(1f)
                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 .setDuration(300)
@@ -108,8 +111,8 @@ public class ForecastView extends LinearLayout {
     }
 
     public void onScroll(float fraction, Forecast oldF, Forecast newF) {
-        weatherImage.setScaleX(fraction);
-        weatherImage.setScaleY(fraction);
+        weatherDescription.setScaleX(fraction);
+        weatherDescription.setScaleY(fraction);
         currentGradient = mix(fraction,
                 weatherToGradient(newF.getWeather()),
                 weatherToGradient(oldF.getWeather()));
@@ -127,6 +130,10 @@ public class ForecastView extends LinearLayout {
 
     private int[] weatherToGradient(Weather weather) {
         switch (weather) {
+            case VERY_SUNNY:
+                return colors(R.array.gradientMostlyCloudy);
+            case SUNNY:
+                return colors(R.array.gradientPeriodicClouds);
             case PERIODIC_CLOUDS:
                 return colors(R.array.gradientPeriodicClouds);
             case CLOUDY:
@@ -136,28 +143,14 @@ public class ForecastView extends LinearLayout {
             case PARTLY_CLOUDY:
                 return colors(R.array.gradientPartlyCloudy);
             case CLEAR:
+
                 return colors(R.array.gradientClear);
             default:
                 throw new IllegalArgumentException();
         }
     }
 
-    private int weatherToIcon(Weather weather) {
-        switch (weather) {
-            case PERIODIC_CLOUDS:
-                return R.drawable.periodic_clouds;
-            case CLOUDY:
-                return R.drawable.cloudy;
-            case MOSTLY_CLOUDY:
-                return R.drawable.mostly_cloudy;
-            case PARTLY_CLOUDY:
-                return R.drawable.partly_cloudy;
-            case CLEAR:
-                return R.drawable.clear;
-            default:
-                throw new IllegalArgumentException();
-        }
-    }
+
 
     private int[] colors(@ArrayRes int res) {
         return getContext().getResources().getIntArray(res);

@@ -16,6 +16,10 @@ public class Forecast {
         this.cityIcon = cityIcon;
         this.temperature = temperature;
         this.weather = weather;
+        if(weather.getDisplayName()=="")
+        {
+
+        }
     }
 
     public String getCityName() {

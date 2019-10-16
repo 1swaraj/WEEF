@@ -50,7 +50,6 @@ public class DiscreteScrollView extends RecyclerView {
     private void init(AttributeSet attrs) {
         scrollStateChangeListeners = new ArrayList<>();
         onItemChangedListeners = new ArrayList<>();
-
         int orientation = DEFAULT_ORIENTATION;
         if (attrs != null) {
             TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.DiscreteScrollView);
