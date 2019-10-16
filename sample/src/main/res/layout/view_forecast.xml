@@ -19,6 +19,7 @@
         android:layout_marginBottom="150dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@android:color/white"
+        android:textColorLink="@color/alice_blue"
         android:autoSizeTextType="uniform"
         tools:text="Mostly Cloudy" />
 
