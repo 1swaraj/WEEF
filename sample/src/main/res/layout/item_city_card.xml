@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="100dp"
-    android:layout_height="116dp"
+    android:layout_height="70dp"
     android:layout_gravity="center"
     android:layout_margin="4dp">
 
@@ -24,6 +24,7 @@
             android:paddingTop="4dp"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
+            android:fontFamily="@font/laton"
             android:autoSizeTextType="uniform"
             android:maxLines="1"
             android:textStyle="bold"

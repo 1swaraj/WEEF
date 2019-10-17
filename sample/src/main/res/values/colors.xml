@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="a1">#88d3ce</color>
+    <color name="a2">#86A8E7</color>
+    <color name="a3">#6e45e2</color>
+
+    <array name="a">
+        <item>@color/a3</item>
+        <item>@color/a2</item>
+        <item>@color/a1</item>
+    </array>
+
+    <color name="b1">#9795f0</color>
+    <color name="b2">#C99795F0</color>
+    <color name="b3">#C59DA6</color>
+
+    <array name="b">
+        <item>@color/b1</item>
+        <item>@color/b2</item>
+        <item>@color/b3</item>
+    </array>
+
+
+
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
@@ -39,13 +62,13 @@
         <item>@color/gradientCloudy_c3</item>
     </array>
 
-    <color name="gradientMostlyCloudy_c1">#51bbf5</color>
-    <color name="gradientMostlyCloudy_c2">#71c3ee</color>
-    <color name="gradientMostlyCloudy_c3">#f3e5d2</color>
+    <color name="gradientMostlyCloudy_c1">#40C4FF</color>
+    <color name="gradientMostlyCloudy_c2">#4FD4EC</color>
+    <color name="gradientMostlyCloudy_c3">#7571E7</color>
 
     <array name="gradientMostlyCloudy">
-        <item>@color/gradientMostlyCloudy_c1</item>
         <item>@color/gradientMostlyCloudy_c2</item>
+        <item>@color/gradientMostlyCloudy_c1</item>
         <item>@color/gradientMostlyCloudy_c3</item>
     </array>
 

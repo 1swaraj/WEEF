@@ -131,11 +131,11 @@ public class ForecastView extends LinearLayout {
     private int[] weatherToGradient(Weather weather) {
         switch (weather) {
             case VERY_SUNNY:
-                return colors(R.array.gradientMostlyCloudy);
+                return colors(R.array.a);
             case SUNNY:
                 return colors(R.array.gradientPeriodicClouds);
             case PERIODIC_CLOUDS:
-                return colors(R.array.gradientPeriodicClouds);
+                return colors(R.array.b);
             case CLOUDY:
                 return colors(R.array.gradientCloudy);
             case MOSTLY_CLOUDY:

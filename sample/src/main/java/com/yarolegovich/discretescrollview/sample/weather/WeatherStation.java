@@ -27,6 +27,6 @@ public class WeatherStation {
                 new Forecast("About Us", R.drawable.about, "18", Weather.PARTLY_CLOUDY),
                 new Forecast("Welcome", R.drawable.paris, "18", Weather.VERY_SUNNY),
                 new Forecast("Programme", R.drawable.rome, "14", Weather.CLEAR),
-                new Forecast("Sponsor", R.drawable.sponsor, "20", Weather.CLEAR));
+                new Forecast("Sponsor", R.drawable.sponsor, "20", Weather.CLOUDY));
     }
 }
